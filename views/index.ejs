@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clon Twitter</title>
+    <link rel="stylesheet" href="/public/CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body class="container-fluid bg-black text-color row n-8">
+
+    <!-- INICIO Y OPCIONES -->
+    <nav class="col-lg-3">
+        <section class="container nav-section">
+            <div class="container nav-container logo-twitter">
+                <a href="#">
+                    <img src="/public/images/Pajarito-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                </a>
+            </div>
+
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Inicio-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Inicio
+                    <!-- <p></p> -->
+                </a>
+            </div>
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Explorar-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Explorar
+                    <!-- <p></p> -->
+                </a>
+            </div>
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Notificacion-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Notificaciones
+                    <!-- <p></p> -->
+                </a>
+            </div>
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Mensajes-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Mensajes
+                    <!-- <p></p> -->
+                </a>
+            </div>
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Listas-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Listas
+                    <!-- <p></p> -->
+                </a>
+            </div>
+
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Guardados-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Guardados
+                    <!-- <p></p> -->
+                </a>
+            </div>
+
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Verificado-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Verificado
+                    <!-- <p></p> -->
+                </a>
+            </div>
+
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Perfil-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Perfil
+                    <!-- <p></p> -->
+                </a>
+            </div>
+
+            <div class="nav-div bold-text">
+                <a class="nav-a" href="#">
+                    <img src="/public/images/Opciones-twitter.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    Mas Opciones
+                    <!-- <p></p> -->
+                </a>
+            </div>
+
+            <div class="nav-div bold-text">
+                <a class="boton-twittear" href="#">
+                    Twittear
+                    <!-- <p></p> -->
+                </a>
+            </div>
+        </section>
+
+        <section class="nom-us">
+            <div>
+                <img class="img-perfil"src="/public/images/Usuario Granados/img-granados.png" alt="imagern perfil">
+            </div>
+            <div class="col-md-8 usuarios">
+                <span class="bold-text">Migue Granados<br></span>
+                <span class="arroba">@miguegranados</span>
+            </div>    
+        </section>
+        <!-- BOTONES PARA EL CAMBIO DE USUARIO -->
+        <!-- <div class="btn-group borde-grey" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary btn-sm" >1</button>
+            <button type="button" class="btn btn-primary btn-sm" >2</button>
+            <button type="button" class="btn btn-primary btn-sm" >3</button>
+            <button type="button" class="btn btn-primary btn-sm" >4</button>
+            <button type="button" class="btn btn-primary btn-sm" >5</button>
+            <button type="button" class="btn btn-primary btn-sm" >6</button>
+            <button type="button" class="btn btn-primary btn-sm" >7</button>
+            <button type="button" class="btn btn-primary btn-sm" >8</button>
+            <button type="button" class="btn btn-primary btn-sm" >9</button>
+            <button type="button" class="btn btn-primary btn-sm" >10</button>
+        </div> -->
+    </nav>
+
+    
+    <!-- PUBLICACIONES Y COMENTARIOS -->
+    <main class="col-lg-5 main-tw">
+        <a href="/newPost">
+            <button type="button" class="btn btn-primary btn-lg">Nuevo Post</button>
+        </a>
+        <% posts.forEach(post => { %>
+            <p class="text-twit">
+                <%= post.title %>
+            </p>
+
+            <p class="text-twit">
+                <%= post.description %>
+            </p>
+
+            <p class="text-twit">
+                <%= post.markdown %>
+            </p>
+        <% })%>
+         <!-- <div class="main_twits borde-grey">
+            <h5 class="bold-text c-white">Inicio</h5>
+            <div class="selector">
+                <div class="para-ti">Para ti<br><strong class="bold-text">______</strong></div>
+                <div class="seguidos">Seguidos</div>
+            </div>
+        </div> -->
+
+       <!-- <div class="twittear borde-grey">
+            <img class="img-perfil"src="/public/images/Usuario Granados/img-granados.png" alt="imagern perfil">
+            <input type="text"  placeholder="¡¿Que está pasando?!">
+            <div class="multi">
+                <div><img src="/public/images/IMG-Twitear/imagen.png" alt=""></div>
+                <div><img src="/public/images/IMG-Twitear/gif.png" alt=""></div>
+                <div><img src="/public/images/IMG-Twitear/encuesta.png" alt=""></div>
+                <div><img src="/public/images/IMG-Twitear/emoji.png" alt=""></div>
+                <div><img src="/public/images/IMG-Twitear/programacion.png" alt=""></div>
+                <div><img src="/public/images/IMG-Twitear/ubicacion.png" alt=""></div>
+                <a href="#" class="btn-twit bold-text">Twittear</a>
+            </div>
+        </div>
+
+        <div class="twits">
+            <section class="borde-grey">
+                <img class="img-perfil" src="/public/images/Imagenes-Usuarios/Duran.png" alt="imagern perfil">
+                <span class="usuarios bold-text">Miguel Angel Duran</span>
+                <span class="arroba-us">@midudev 1h <br></span>
+                <span class="res">En respuesta a <strong>@midudev</strong></span>
+                <p class="text-twit">5. Abarca la falta de conocimiento</p>
+                <p class="text-twit">Entra una persona nueva en el equipo...<br>
+                    ¿Como Puede saber lo que puede y no puede hacer?
+                </p>
+                <p class="text-twit">
+                    -Documenta todos los procesos<br>
+                    -Automatiza el estilo de codigo lo maximo posible<br>
+                    -Añade errores claros a los procesos de Cl<br>
+                    -Ten un buen onboarding
+                </p>
+            </section>
+
+            <section class="borde-grey">
+                <img class="img-perfil" src="/public/images/Imagenes-Usuarios/Schurmann.png" alt="imagern perfil">
+                <span class="usuarios bold-text">Nicolás Schürmann</span>
+                <span class="arroba-us">@_nasch_ 8 jun. <br></span>
+                <p class="text-twit">Que cosas buenas ha hecho por su vida 
+                    aprender a programar? Los leo. A mi me dio libertad casi absoluta.
+                </p>
+            </section>
+
+            <section class="borde-grey">
+                <img class="img-perfil" src="/public/images/Imagenes-Usuarios/Leon.png" alt="imagern perfil">
+                <span class="usuarios bold-text">Héctor de León (El loco
+                    de los perros)
+                </span>
+                <span class="arroba-us">@powerhdeleon 16h <br></span>
+                <p class="text-twit">Yo creo que con la Cerveza estamos TODO en PELIGRO
+                    y no importa cuanto bebas, ni que tan borracho seas.
+                </p>
+                <p class="text-twit">
+                    Me acaba de pasar algo FATAL pero lamentablemente NO HABIA FORMA
+                    de evitarlo. Se los voy a contar en un video porque todos 
+                    deberian estar al tanto.
+                </p>
+            </section>
+
+            <section class="borde-grey">
+                <img class="img-perfil" src="/public/images/Imagenes-Usuarios/Leon.png" alt="imagern perfil">
+                <span class="usuarios bold-text">Héctor de León (El loco
+                    de los perros)
+                </span>
+                <span class="arroba-us">@powerhdeleon 16h <br></span>
+                <p class="text-twit">"Ez ke loz del Youtube no zalen 
+                    de bideos de Hola Mundo"
+                </p>
+            </section>
+        </div> -->
+       
+    </main>
+    <!-- BUSCADOR Y SUGERENCIAS -->
+    <aside class="col-lg-3">
+        <div class="buscador">
+            <input type="search" placeholder="Buscar en Twitter">
+        </div>
+
+        <div class="verificacion bold-text">
+            <h4>Obtener Verificación</h4>
+            <p>Suscribete para desbloquear nuevas funciones</p>
+            <button class="btn-verificado bold-text">Obtener Verificacion</button>
+        </div>
+        
+        <div class="tend caja-aside">
+            <h4>Qué está pasando</h4>
+            <p class="text-tend bold-text"><strong>Tendencia en Argentina</strong><br>Esteban Laureano Maradona</p>
+            <p class="text-tend bold-text"><strong>Tendencia en Argentina</strong><br>Lolla<br>
+                <strong>3.663 Tweets</strong>
+            </p>
+            <p class="text-tend bold-text"><strong>Tendencia en Argentina</strong><br>
+                23 de la Liga Profesional
+            </p>
+            <p class="text-tend bold-text"><strong>Tendencia en Argentina</strong><br>
+                Ladaga<br>
+                <strong>1.872 Tweets</strong>
+            </p>
+
+            <a href="#" class="mostrar-mas">Mostrar más</a>
+        </div>
+
+        <div class="caja-aside">
+            <h4>A quién seguir</h4>
+            <section class="seguir">
+                <div>                
+                    <img src="/public/images/IMAGENES-SEGUIR/Albornoz.png" alt="">
+                </div>
+                <div class="col-md-8 usuarios">
+                    <p>Mauro Albornoz</p>
+                    <span class="arroba">@Mau_Albornoz</span>
+                </div>
+                <button class="btn-seguir bold-text">Seguir</button>
+            </section>
+
+            <section class="seguir">
+                <div>                
+                    <img src="/public/images/IMAGENES-SEGUIR/valen.png" alt="">
+                </div>
+                <div class="col-md-8 usuarios">
+                    <p>valen</p>
+                    <span class="arroba">@prottovalen</span>
+                </div>
+                <button class="btn-seguir bold-text">Seguir</button>
+            </section>
+
+            <section class="seguir">
+                <div>                
+                    <img src="/public/images/IMAGENES-SEGUIR/Conmebol.png" alt="">
+                </div>
+                <div class="col-md-8 usuarios">
+                    <p>CONMEBOL Sud...</p>
+                    <span class="arroba">@Sudamericana</span>
+                </div>
+                <button class="btn-seguir bold-text">Seguir</button>
+            </section>
+        </div>
+
+
+    </aside>
+
+
+    <!-- <script src="/JS/app.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
