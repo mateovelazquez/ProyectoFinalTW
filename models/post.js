@@ -6,44 +6,46 @@ const createDOMpurify = require('dompurify')
 const DOMpurify = createDOMpurify(new JSDOM().window)
 
 const postSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        // required: true
-    },
     description: {
         type: String
     },
     markdown: {
         type: String,
-        // required: true
+        required: true
+    },
+    image: {
+        type: String,
+    },
+    cloudinary_id: {
+        type: String
     },
     createdAt: {
         type: Date,
         default: Date.now
     },
-    // slug: {
-    //     type: String,
-    //     unique: true,
-    //     required: true
-    // },
-    // sanitizedHtml: {
-    //     type: String,
-    //     required: true
-    // }
+    slug: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    sanitizedHtml: {
+        type: String,
+        required: true
+    }
 },
 {versionkey: false, timestamps: true}
 )
 
-// postSchema.pre("validate", function(next){
-//     if(this.title){
-//         this.slug = slugify(this.title, {lower: true, strict: true})
-//     }
+postSchema.pre("validate", function(next){
+    if(this.description){
+        this.slug = slugify(this.description, {lower: true, strict: true})
+    }
 
-//     if(this.markdown){
-//         this.sanitizedHtml = DOMpurify.sanitize(marked(this.markdown))
-//     }
+    if(this.markdown){
+        this.sanitizedHtml = DOMpurify.sanitize(marked(this.markdown))
+    }
 
-//     next();
-// })
+    next();
+})
 
 module.exports = mongoose.model("Post", postSchema)
